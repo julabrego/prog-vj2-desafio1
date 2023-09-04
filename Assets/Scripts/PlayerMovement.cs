@@ -15,11 +15,15 @@ public class Mover : MonoBehaviour
 
     // Variable para referenciar otro componente del objeto
     private Rigidbody2D miRigidbody2D;
+    private Animator miAnimator;
+    private SpriteRenderer miSprite;
 
     // Codigo ejecutado cuando el objeto se activa en el nivel
     private void OnEnable()
     {
         miRigidbody2D = GetComponent<Rigidbody2D>();
+        miAnimator = GetComponent<Animator>();
+        miSprite = GetComponent<SpriteRenderer>();
     }
 
     // Codigo ejecutado en cada frame del juego (Intervalo variable)
@@ -28,6 +32,12 @@ public class Mover : MonoBehaviour
         moverHorizontal = Input.GetAxis("Horizontal");
         moverVertical = Input.GetAxis("Vertical");
         direccion = new Vector2(moverHorizontal, moverVertical);
+
+        float speedWalking = Mathf.Abs(moverHorizontal)+ Mathf.Abs(moverVertical);
+        //miSprite.flipX = moverHorizontal > 0;
+        miAnimator.SetFloat("Speed", speedWalking);
+        miAnimator.SetFloat("Horizontal", moverHorizontal);
+        miAnimator.SetFloat("Vertical", moverVertical);
     }
     private void FixedUpdate()
     {
