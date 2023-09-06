@@ -33,11 +33,14 @@ public class Mover : MonoBehaviour
         moverVertical = Input.GetAxis("Vertical");
         direccion = new Vector2(moverHorizontal, moverVertical);
 
-        float speedWalking = Mathf.Abs(moverHorizontal)+ Mathf.Abs(moverVertical);
-        //miSprite.flipX = moverHorizontal > 0;
+        float speedWalking = Mathf.Abs(moverHorizontal) + Mathf.Abs(moverVertical);
+        
         miAnimator.SetFloat("Speed", speedWalking);
         miAnimator.SetFloat("Horizontal", moverHorizontal);
         miAnimator.SetFloat("Vertical", moverVertical);
+
+        miAnimator.gameObject.GetComponent<Animator>().enabled = speedWalking != 0;
+
     }
     private void FixedUpdate()
     {

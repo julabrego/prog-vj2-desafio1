@@ -59,6 +59,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8137847887755868319, guid: ea8b995902e8d544c8eb1313b6090e66, type: 3}
       insertIndex: -1
       addedObject: {fileID: -6620399413427582141}
+    - targetCorrespondingSourceObject: {fileID: 8137847887755868319, guid: ea8b995902e8d544c8eb1313b6090e66, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3749725927945470334}
   m_SourcePrefab: {fileID: 100100000, guid: ea8b995902e8d544c8eb1313b6090e66, type: 3}
 --- !u!1 &7281316898220353853 stripped
 GameObject:
@@ -79,3 +82,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidad: 5
   jugador: {fileID: 0}
+--- !u!95 &3749725927945470334
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7281316898220353853}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7a6b5bc839e671d4c9a76249e65ce638, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
