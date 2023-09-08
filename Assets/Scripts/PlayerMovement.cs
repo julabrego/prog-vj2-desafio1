@@ -13,10 +13,6 @@ public class Mover : MonoBehaviour
     private float moverVertical;
     private Vector2 direccion;
 
-    // Trackeo de velocidad
-    private Vector2 trackVelocity;
-    private Vector2 lastPosition;
-
     // Variable para referenciar otro componente del objeto
     private Rigidbody2D myRigidbody2D;
     private Animator miAnimator;
@@ -40,17 +36,5 @@ public class Mover : MonoBehaviour
     private void FixedUpdate()
     {
         myRigidbody2D.MovePosition(myRigidbody2D.position + direccion * (velocidad * Time.fixedDeltaTime));
-        calculateVelocity();
-    }
-
-    protected void calculateVelocity()
-    {
-        trackVelocity = (myRigidbody2D.position - lastPosition) * 50;
-        lastPosition = myRigidbody2D.position;
-    }
-
-    public Vector2 getVelocity()
-    {
-        return trackVelocity;
     }
 }
