@@ -13,15 +13,19 @@ public class Mover : MonoBehaviour
     private float moverVertical;
     private Vector2 direccion;
 
+    // Trackeo de velocidad
+    private Vector2 trackVelocity;
+    private Vector2 lastPosition;
+
     // Variable para referenciar otro componente del objeto
-    private Rigidbody2D miRigidbody2D;
+    private Rigidbody2D myRigidbody2D;
     private Animator miAnimator;
     private SpriteRenderer miSprite;
 
     // Codigo ejecutado cuando el objeto se activa en el nivel
     private void OnEnable()
     {
-        miRigidbody2D = GetComponent<Rigidbody2D>();
+        myRigidbody2D = GetComponent<Rigidbody2D>();
         miAnimator = GetComponent<Animator>();
         miSprite = GetComponent<SpriteRenderer>();
     }
@@ -32,18 +36,21 @@ public class Mover : MonoBehaviour
         moverHorizontal = Input.GetAxis("Horizontal");
         moverVertical = Input.GetAxis("Vertical");
         direccion = new Vector2(moverHorizontal, moverVertical);
-
-        float speedWalking = Mathf.Abs(moverHorizontal) + Mathf.Abs(moverVertical);
-        
-        miAnimator.SetFloat("Speed", speedWalking);
-        miAnimator.SetFloat("Horizontal", moverHorizontal);
-        miAnimator.SetFloat("Vertical", moverVertical);
-
-        miAnimator.gameObject.GetComponent<Animator>().enabled = speedWalking != 0;
-
     }
     private void FixedUpdate()
     {
-        miRigidbody2D.MovePosition(miRigidbody2D.position + direccion * (velocidad * Time.fixedDeltaTime));
+        myRigidbody2D.MovePosition(myRigidbody2D.position + direccion * (velocidad * Time.fixedDeltaTime));
+        calculateVelocity();
+    }
+
+    protected void calculateVelocity()
+    {
+        trackVelocity = (myRigidbody2D.position - lastPosition) * 50;
+        lastPosition = myRigidbody2D.position;
+    }
+
+    public Vector2 getVelocity()
+    {
+        return trackVelocity;
     }
 }
