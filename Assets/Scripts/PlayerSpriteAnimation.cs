@@ -30,13 +30,16 @@ public class PlayerSpriteAnimation : MonoBehaviour
         miAnimator.SetFloat("Vertical", getVelocity().y);
 
         miAnimator.gameObject.GetComponent<Animator>().enabled = speedWalking != 0;
+    }
 
+    private void FixedUpdate()
+    {
         calculateVelocity();
     }
 
     protected void calculateVelocity()
     {
-        trackVelocity = (myRigidbody2D.position - lastPosition) ;
+        trackVelocity = (myRigidbody2D.position - lastPosition) * 50;
         lastPosition = myRigidbody2D.position;
     }
 
