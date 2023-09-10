@@ -4,16 +4,41 @@ using UnityEngine;
 
 public class Collect : MonoBehaviour
 {
+    [SerializeField] private AudioClip coinSFX;
+
+    private AudioSource myAudioSource;
+    private SpriteRenderer mySpriteRenderer;
+    private BoxCollider2D myCollider;
+    private bool isCollected = false;
+    private ParticleSystem myParticleSystem;
+
+    private void OnEnable()
+    {
+        myAudioSource = GetComponent<AudioSource>();
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
+        myCollider = GetComponent<BoxCollider2D>();
+        myParticleSystem = GetComponent<ParticleSystem>();
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && !isCollected)
         {
+            isCollected = true;
+
             Player jugador = collision.gameObject.GetComponent<Player>();
             jugador.AddCoins(1);
             
             Debug.Log("Monedas: " + jugador.getCoins());
-            
-            Destroy(gameObject);
+
+            mySpriteRenderer.enabled = false;
+            myCollider.enabled = false;
+            myAudioSource.PlayOneShot(coinSFX);
+            myParticleSystem.Play();
         }
+    }
+
+    private void Update()
+    {
+        if (!myAudioSource.isPlaying && isCollected) Destroy(gameObject);
     }
 }
