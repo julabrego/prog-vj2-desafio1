@@ -8,18 +8,16 @@ public class FixedMovement : MonoBehaviour
     [Header("Configuracion")]
     [SerializeField] float velocidad = 5f;
     [SerializeField] float distanceRange = 3f;
+    [SerializeField] float startDirection = 1f;
 
     // Variable para referenciar otro componente del objeto
     private Rigidbody2D miRigidbody2D;
-    private float startDirection;
     private Vector2 direccion;
     private Vector2 startPosition;
-
     private void Awake()
     {
         miRigidbody2D = GetComponent<Rigidbody2D>();
         startPosition = transform.position;
-        startDirection = 1f;
         direccion = new Vector2(startDirection, 0f);
     }
 
