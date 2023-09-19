@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Collect : MonoBehaviour
+public class Collect : MonoBehaviour 
 {
     [SerializeField] private AudioClip coinSFX;
 
@@ -11,6 +11,13 @@ public class Collect : MonoBehaviour
     private BoxCollider2D myCollider;
     private bool isCollected = false;
     private ParticleSystem myParticleSystem;
+    private Game game;
+
+    private void Start()
+    {
+        game = FindObjectOfType<Game>();
+        game.TotalLevelCoins++;
+    }
 
     private void OnEnable()
     {
@@ -26,9 +33,7 @@ public class Collect : MonoBehaviour
             isCollected = true;
 
             Player jugador = collision.gameObject.GetComponent<Player>();
-            jugador.AddCoins(1);
-            
-            Debug.Log("Monedas: " + jugador.getCoins());
+            game.AddCoins(1);
 
             mySpriteRenderer.enabled = false;
             myCollider.enabled = false;

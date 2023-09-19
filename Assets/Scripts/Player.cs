@@ -6,20 +6,25 @@ public class Player : MonoBehaviour
 {
     [Header("Configuracion")]
     [SerializeField] private float vida = 5f;
-    [SerializeField] private int coins = 0;
-    
+
+    private Game game;
+
+    private void Start()
+    {
+        game = FindObjectOfType<Game>();
+    }
+    public float Vida { get => vida; set => vida = value; }
+
     public void ModificarVida(float puntos)
     {
-        vida += puntos;
+        Vida += puntos;
+        if(Vida <= 0)
+            game.lose();
     }
 
-    public void AddCoins(int _coins)
+    public bool isAlive()
     {
-        coins += _coins;
+        return Vida > 0;
     }
 
-    public int getCoins()
-    {
-        return coins;
-    }
 }
