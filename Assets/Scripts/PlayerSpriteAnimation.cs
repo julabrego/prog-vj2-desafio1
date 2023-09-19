@@ -6,7 +6,6 @@ public class PlayerSpriteAnimation : MonoBehaviour
 {
     // Variable para referenciar otro componente del objeto
     private Animator miAnimator;
-    private Mover movimiento;
     private Rigidbody2D myRigidbody2D;
 
     // Trackeo de velocidad
@@ -16,7 +15,6 @@ public class PlayerSpriteAnimation : MonoBehaviour
     private void OnEnable()
     {
         miAnimator = GetComponent<Animator>();
-        movimiento = GetComponent<Mover>();
         myRigidbody2D = GetComponent<Rigidbody2D>();
     }
 

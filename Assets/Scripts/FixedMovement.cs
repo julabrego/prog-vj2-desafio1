@@ -8,10 +8,10 @@ public class FixedMovement : MonoBehaviour
     [Header("Configuracion")]
     [SerializeField] float velocidad = 5f;
     [SerializeField] float distanceRange = 3f;
+    [SerializeField] float startDirection = 1f;
 
     // Variable para referenciar otro componente del objeto
     private Rigidbody2D miRigidbody2D;
-    private float startDirection;
     private Vector2 direccion;
     private Vector2 startPosition;
 
@@ -19,24 +19,24 @@ public class FixedMovement : MonoBehaviour
     {
         miRigidbody2D = GetComponent<Rigidbody2D>();
         startPosition = transform.position;
-        startDirection = 1f;
         direccion = new Vector2(startDirection, 0f);
     }
 
     private void FixedUpdate()
     {
         if (Vector2.Distance(startPosition, transform.position) > distanceRange)
-        {
-            startDirection *= -1;
-            direccion = new Vector2(startDirection, 0f);
-        }
+            reverseDirection();
 
         miRigidbody2D.MovePosition(miRigidbody2D.position + direccion * (velocidad * Time.fixedDeltaTime));
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        reverseDirection();
+    }
+
+    private void reverseDirection()
+    {
         startDirection *= -1;
         direccion = new Vector2(startDirection, 0f);
     }
-
 }

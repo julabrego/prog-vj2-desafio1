@@ -6,20 +6,46 @@ public class Player : MonoBehaviour
 {
     [Header("Configuracion")]
     [SerializeField] private float vida = 5f;
-    [SerializeField] private int coins = 0;
-    
+
+    private Game game;
+    private SpriteRenderer mySpriteRenderer;
+    private CircleCollider2D myCollider;
+
+    private void Start()
+    {
+        game = FindObjectOfType<Game>();
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
+        myCollider = GetComponent<CircleCollider2D>();
+    }
+    public float Vida { get => vida; set => vida = value; }
+
+    public void FixedUpdate()
+    {
+        if (!game.Playing && mySpriteRenderer.enabled)
+            makeInvisible();
+    }
     public void ModificarVida(float puntos)
     {
-        vida += puntos;
+        Vida += puntos;
+        if (Vida <= 0)
+        {
+            game.lose();
+        }
+        else
+        {
+            Debug.Log(" VIDA: " + vida);
+        }
     }
 
-    public void AddCoins(int _coins)
+    public bool isAlive()
     {
-        coins += _coins;
+        return Vida > 0;
     }
 
-    public int getCoins()
+    private void makeInvisible()
     {
-        return coins;
+        myCollider.enabled = false;
+        mySpriteRenderer.enabled = false;
     }
+
 }
