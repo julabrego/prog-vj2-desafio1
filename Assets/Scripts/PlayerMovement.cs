@@ -36,6 +36,10 @@ public class Mover : MonoBehaviour
             moverHorizontal = Input.GetAxis("Horizontal");
             moverVertical = Input.GetAxis("Vertical");
         }
+        else
+        {
+            moverHorizontal = moverVertical = 0f;
+        }
 
         direccion = new Vector2(moverHorizontal, moverVertical);
     }

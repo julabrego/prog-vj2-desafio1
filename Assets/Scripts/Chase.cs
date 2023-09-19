@@ -29,6 +29,11 @@ public class Chase : MonoBehaviour
     private void FixedUpdate()
     {
         direccion = (jugador.position - transform.position).normalized;
+        follow(jugador);
+    }
+
+    private void follow(Transform jugador)
+    {
         if (Vector2.Distance(jugador.position, transform.position) < 5)
         {
             miRigidbody2D.MovePosition(miRigidbody2D.position + direccion * (velocidad * Time.fixedDeltaTime));
@@ -38,10 +43,5 @@ public class Chase : MonoBehaviour
         {
             miAnimator.gameObject.GetComponent<Animator>().enabled = false;
         }
-
-        miAnimator.SetFloat("Horizontal", direccion.x);
-        miAnimator.SetFloat("Vertical", direccion.y);
-        
     }
-
 }
