@@ -32,12 +32,23 @@ public class Game : MonoBehaviour
 
         if(collectedCoins >= totalLevelCoins)
         {
-            Debug.Log("Todas las monedas recolectadas");
+            win();
         }
     }
 
     public int getCollectedCoins()
     {
         return collectedCoins;
+    }
+
+    public void win()
+    {
+        joystickEnabled = false;
+        Debug.LogWarning("GANASTE (Recolectaste todas las monedas)");
+    }
+    public void lose()
+    {
+        joystickEnabled = false;
+        Debug.LogWarning("PERDISTE (Tu personaje se quedó sin vida)");
     }
 }

@@ -13,15 +13,18 @@ public class Collect : MonoBehaviour
     private ParticleSystem myParticleSystem;
     private Game game;
 
+    private void Start()
+    {
+        game = FindObjectOfType<Game>();
+        game.TotalLevelCoins++;
+    }
+
     private void OnEnable()
     {
         myAudioSource = GetComponent<AudioSource>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         myCollider = GetComponent<BoxCollider2D>();
         myParticleSystem = GetComponent<ParticleSystem>();
-
-        game = FindObjectOfType<Game>();
-        game.TotalLevelCoins++;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

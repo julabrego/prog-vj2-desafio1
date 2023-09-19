@@ -17,11 +17,15 @@ public class Mover : MonoBehaviour
     // Variable para referenciar otro componente del objeto
     private Rigidbody2D myRigidbody2D;
 
+    private void Start()
+    {
+        game = FindObjectOfType<Game>();
+    }
+
     // Codigo ejecutado cuando el objeto se activa en el nivel
     private void OnEnable()
     {
         myRigidbody2D = GetComponent<Rigidbody2D>();
-        game = FindObjectOfType<Game>();
     }
 
     // Codigo ejecutado en cada frame del juego (Intervalo variable)
