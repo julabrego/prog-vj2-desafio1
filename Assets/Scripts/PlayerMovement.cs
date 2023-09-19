@@ -12,6 +12,7 @@ public class Mover : MonoBehaviour
     private float moverHorizontal;
     private float moverVertical;
     private Vector2 direccion;
+    private Game game;
 
     // Variable para referenciar otro componente del objeto
     private Rigidbody2D myRigidbody2D;
@@ -20,13 +21,18 @@ public class Mover : MonoBehaviour
     private void OnEnable()
     {
         myRigidbody2D = GetComponent<Rigidbody2D>();
+        game = FindObjectOfType<Game>();
     }
 
     // Codigo ejecutado en cada frame del juego (Intervalo variable)
     private void Update()
     {
-        moverHorizontal = Input.GetAxis("Horizontal");
-        moverVertical = Input.GetAxis("Vertical");
+        if (game.JoystickEnabled)
+        {
+            moverHorizontal = Input.GetAxis("Horizontal");
+            moverVertical = Input.GetAxis("Vertical");
+        }
+
         direccion = new Vector2(moverHorizontal, moverVertical);
     }
     private void FixedUpdate()
