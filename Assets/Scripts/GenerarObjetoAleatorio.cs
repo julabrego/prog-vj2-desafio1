@@ -35,9 +35,8 @@ public class GeneradorObjetoAleatorio : MonoBehaviour
 
         if (gameObject.GetComponent<SelfDestructChilds>())
         {
-            Debug.Log("Self destruct");
-            //newObject.AddComponent<SeltDestruct>();
-            //newObject.GetComponent<SeltDestruct>().Duration = gameObject.GetComponent<SelfDestructChilds>().ChildLifetime;
+            newObject.AddComponent<SeltDestruct>();
+            newObject.GetComponent<SeltDestruct>().Duration = gameObject.GetComponent<SelfDestructChilds>().ChildLifetime;
         }
     }
 

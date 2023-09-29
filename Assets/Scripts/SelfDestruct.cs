@@ -12,12 +12,11 @@ public class SeltDestruct : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating(nameof(SelfDestruct), Duration, 1);
+        Invoke(nameof(SelfDestruct), Duration);
     }
 
     private void SelfDestruct()
     {
-        Debug.Log("Destroyyy");
-        //Destroy(gameObject);
+        Destroy(gameObject);
     }
 }
