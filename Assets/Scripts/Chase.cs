@@ -19,6 +19,9 @@ public class Chase : MonoBehaviour
     private Animator miAnimator;
     private SpriteRenderer miSprite;
 
+    public Transform Jugador { get => jugador; set => jugador = value; }
+    public float Velocidad { get => velocidad; set => velocidad = value; }
+
     private void Awake()
     {
         miRigidbody2D = GetComponent<Rigidbody2D>();
@@ -28,15 +31,15 @@ public class Chase : MonoBehaviour
 
     private void FixedUpdate()
     {
-        direccion = (jugador.position - transform.position).normalized;
-        follow(jugador); 
+        direccion = (Jugador.position - transform.position).normalized;
+        follow(Jugador); 
     }
 
     private void follow(Transform jugador)
     {
         if (Vector2.Distance(jugador.position, transform.position) < 5)
         {
-            miRigidbody2D.MovePosition(miRigidbody2D.position + direccion * (velocidad * Time.fixedDeltaTime));
+            miRigidbody2D.MovePosition(miRigidbody2D.position + direccion * (Velocidad * Time.fixedDeltaTime));
             miAnimator.gameObject.GetComponent<Animator>().enabled = true;
         }
         else

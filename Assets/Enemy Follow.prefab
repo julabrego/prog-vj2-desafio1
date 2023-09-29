@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbbdbe8fe3db68645b116fd9f4df2b76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidad: 5
+  velocidad: 3
   jugador: {fileID: 0}
 --- !u!95 &3749725927945470334
 Animator:
