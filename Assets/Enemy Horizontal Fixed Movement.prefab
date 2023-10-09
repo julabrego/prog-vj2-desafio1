@@ -93,6 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidad: 5
   distanceRange: 3
+  startDirection: 1
 --- !u!95 &8616018030304228892
 Animator:
   serializedVersion: 5
