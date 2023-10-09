@@ -42,6 +42,9 @@ TagManager:
   - name: Background
     uniqueID: 1640147599
     locked: 0
+  - name: Water
+    uniqueID: 1778849205
+    locked: 0
   - name: Map
     uniqueID: 1309755769
     locked: 0
