@@ -43,6 +43,6 @@ public class Collect : MonoBehaviour
 
     private void Update()
     {
-        if (!myAudioSource.isPlaying && isCollected) Destroy(gameObject);
+        if (!myAudioSource.isPlaying && isCollected) gameObject.SetActive(false);
     }
 }

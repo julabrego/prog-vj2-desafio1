@@ -7,9 +7,7 @@ public class PuzzleSequence : MonoBehaviour
 {
     [SerializeField] private int[] puzzleSequenceNumbers;
     private Queue<int> sequenceNumbers;
-    [SerializeField] private Transform targetParent;
-
-    private bool pressed = false;
+    [SerializeField] private Transform itemsToRestoreParent;
 
     private void Awake()
     {
@@ -35,7 +33,11 @@ public class PuzzleSequence : MonoBehaviour
             newPressed.SetBool("pressed", true);
             sequenceNumbers.Dequeue();
 
-            Debug.Log(isPuzzleSolved());
+            if (isPuzzleSolved())
+            {
+                reenableAllCoins();
+                InitializePuzzleSequence();
+            }
         }
     }
 
@@ -43,4 +45,14 @@ public class PuzzleSequence : MonoBehaviour
     {
         return sequenceNumbers.Count == 0;
     }
+
+    private void reenableAllCoins()
+    {
+        foreach (Transform item in itemsToRestoreParent)
+        {
+            item.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            item.gameObject.SetActive(true);
+        }
+    }
+
 }
