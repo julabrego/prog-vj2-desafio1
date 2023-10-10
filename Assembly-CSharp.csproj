@@ -62,7 +62,9 @@
     <Compile Include="Assets\Scripts\PlayerSpriteAnimation.cs" />
     <Compile Include="Assets\Scripts\GeneradorDiaNoche.cs" />
     <Compile Include="Assets\Scripts\GenerarObjetoAleatorio.cs" />
+    <Compile Include="Assets\Scripts\PlayerProgressionData.cs" />
     <Compile Include="Assets\Scripts\SelfDestructChilds.cs" />
+    <Compile Include="Assets\Scripts\PlayerProgression.cs" />
     <Compile Include="Assets\Scripts\Hurt.cs" />
     <Compile Include="Assets\Scripts\FixedMovement.cs" />
     <Compile Include="Assets\Scripts\Collect.cs" />
