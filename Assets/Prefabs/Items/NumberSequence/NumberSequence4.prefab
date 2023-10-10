@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NumberSequence4
       objectReference: {fileID: 0}
+    - target: {fileID: 3740237172549663011, guid: 88d5c2cc3536c734387951e8ebd00149, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 33ca819cd9bc58e42aa85a6a83149659, type: 2}
     - target: {fileID: 6952545781326677008, guid: 88d5c2cc3536c734387951e8ebd00149, type: 3}
       propertyPath: m_LocalPosition.x
       value: 39.073036
