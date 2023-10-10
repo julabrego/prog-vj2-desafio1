@@ -12,19 +12,20 @@ public class Game : MonoBehaviour
 
     public bool JoystickEnabled { get => joystickEnabled; set => joystickEnabled = value; }
     public bool Playing { get => playing; set => playing = value; }
+    public PlayerProgression PlayerProgression { get => playerProgression; set => playerProgression = value; }
 
     private void Start()
     {
-        playerProgression = gameObject.GetComponent<PlayerProgression>();
+        PlayerProgression = gameObject.GetComponent<PlayerProgression>();
     }
     public void AddCoins(int _coins)
     {
-        playerProgression.AddCoins(_coins);
+        PlayerProgression.AddCoins(_coins);
     }
 
     public int getCollectedCoins()
     {
-        return playerProgression.getCurrentCoins();
+        return PlayerProgression.getCurrentCoins();
     }
 
     public void win()
