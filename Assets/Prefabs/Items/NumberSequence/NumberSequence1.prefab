@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3852707304644456525}
   - component: {fileID: 2922022947378921684}
   - component: {fileID: 8240536411316104374}
+  - component: {fileID: 3218561169049923567}
   m_Layer: 0
   m_Name: NumberSequence1
   m_TagString: NumberSequence
@@ -152,3 +153,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3218561169049923567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8349271811799145112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04da69deb3d901a4f9edc310ae7cfde5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  position: 1

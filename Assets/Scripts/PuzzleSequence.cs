@@ -1,27 +1,46 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PuzzleSequence : MonoBehaviour
 {
-    [SerializeField] private Queue<GameObject> sequenceButtons;
-    [SerializeField] private GameObject pressedButtons;
+    [SerializeField] private int[] puzzleSequenceNumbers;
+    private Queue<int> sequenceNumbers;
+    [SerializeField] private Transform targetParent;
 
     private bool pressed = false;
 
     private void Awake()
     {
-        sequenceButtons = new Queue<GameObject>();
+        sequenceNumbers = new Queue<int>();
+        InitializePuzzleSequence();
+    }
+
+    private void InitializePuzzleSequence()
+    {
+        foreach (int number in puzzleSequenceNumbers)
+        {
+            sequenceNumbers.Enqueue(number);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(!collision.gameObject.CompareTag("NumberSequence")) { return; }
 
-        GameObject newPressed = collision.gameObject;
-        newPressed.SetActive(false);
+        if(collision.gameObject.GetComponent<PuzzlePosition>().Position == sequenceNumbers.Peek())
+        {
+            Animator newPressed = collision.gameObject.GetComponent<Animator>();
+            newPressed.SetBool("pressed", true);
+            sequenceNumbers.Dequeue();
 
-        sequenceButtons.Enqueue(newPressed);
-        newPressed.transform.SetParent(pressedButtons.transform);
+            Debug.Log(isPuzzleSolved());
+        }
+    }
+
+    private bool isPuzzleSolved()
+    {
+        return sequenceNumbers.Count == 0;
     }
 }

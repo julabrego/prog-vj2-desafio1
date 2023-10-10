@@ -17,7 +17,12 @@ public class PlayerProgressionData : ScriptableObject
     [Tooltip("Cantidad de monedas necesarias para acceder a la siguiente isla")]
     private int coinsToNextLevel;
 
+    private Queue<int> puzzleSequence;
+    private Stack<int> pressedNumbers;
+
     public int CurrentLevel { get => currentLevel; set => currentLevel = value; }
     public int CurrentCoins { get => currentCoins; set => currentCoins = value; }
     public int CoinsToNextLevel { get => coinsToNextLevel; set => coinsToNextLevel = value; }
+    public Queue<int> PuzzleSequence { get => puzzleSequence;}
+    public Stack<int> PressedNumbers { get => pressedNumbers; }
 }
