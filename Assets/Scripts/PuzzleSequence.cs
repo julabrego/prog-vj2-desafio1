@@ -8,6 +8,7 @@ public class PuzzleSequence : MonoBehaviour
     [SerializeField] private int[] puzzleSequenceNumbers;
     private Queue<int> sequenceNumbers;
     [SerializeField] private Transform itemsToRestoreParent;
+    [SerializeField] private Transform puzzleButtonsParent;
 
     private void Awake()
     {
@@ -20,6 +21,12 @@ public class PuzzleSequence : MonoBehaviour
         foreach (int number in puzzleSequenceNumbers)
         {
             sequenceNumbers.Enqueue(number);
+        }
+
+        foreach (Transform button in puzzleButtonsParent)
+        {
+            Animator newPressed = button.gameObject.GetComponent<Animator>();
+            newPressed.SetBool("pressed", false);
         }
     }
 
@@ -35,6 +42,8 @@ public class PuzzleSequence : MonoBehaviour
 
             if (isPuzzleSolved())
             {
+                Debug.Log(isPuzzleSolved());
+
                 reenableAllCoins();
                 InitializePuzzleSequence();
             }
@@ -50,8 +59,7 @@ public class PuzzleSequence : MonoBehaviour
     {
         foreach (Transform item in itemsToRestoreParent)
         {
-            item.gameObject.GetComponent<SpriteRenderer>().enabled = true;
-            item.gameObject.SetActive(true);
+            item.gameObject.GetComponent<Collect>().Restore();
         }
     }
 

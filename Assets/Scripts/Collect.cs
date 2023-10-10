@@ -45,4 +45,12 @@ public class Collect : MonoBehaviour
     {
         if (!myAudioSource.isPlaying && isCollected) gameObject.SetActive(false);
     }
+
+    public void Restore()
+    {
+        isCollected = false;
+        gameObject.SetActive(true);
+        mySpriteRenderer.enabled = true;
+        myCollider.enabled = true;
+    }
 }
