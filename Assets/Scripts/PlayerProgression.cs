@@ -6,6 +6,17 @@ public class PlayerProgression : MonoBehaviour
 {
     [SerializeField] private PlayerProgressionData progressionData;
 
+    public void AddCoins(int _coins)
+    {
+        progressionData.CurrentCoins += _coins;
+        Debug.Log("Monedas: " + progressionData.CurrentCoins);
+    }
+
+    public int getCurrentCoins()
+    {
+        return progressionData.CurrentCoins;
+    }
+
     public void purchaseNewLevel()
     {
         if(progressionData.CurrentCoins >= progressionData.CoinsToNextLevel)

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevel: 0
   currentCoins: 0
-  coinsToNextLevel: 0
+  coinsToNextLevel: 10

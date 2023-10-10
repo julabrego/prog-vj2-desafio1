@@ -16,7 +16,6 @@ public class Collect : MonoBehaviour
     private void Start()
     {
         game = FindObjectOfType<Game>();
-        game.TotalLevelCoins++;
     }
 
     private void OnEnable()

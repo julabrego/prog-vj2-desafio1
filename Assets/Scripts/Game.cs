@@ -5,33 +5,32 @@ using UnityEngine;
 public class Game : MonoBehaviour
 {
 
+    private PlayerProgression playerProgression;
+
     private bool joystickEnabled = false;
     private bool playing = true;
 
-    private int totalLevelCoins;
-    private int collectedCoins = 0;
-    public int TotalLevelCoins { get => totalLevelCoins; set => totalLevelCoins = value; }
     public bool JoystickEnabled { get => joystickEnabled; set => joystickEnabled = value; }
     public bool Playing { get => playing; set => playing = value; }
 
+    private void Start()
+    {
+        playerProgression = gameObject.GetComponent<PlayerProgression>();
+    }
     public void AddCoins(int _coins)
     {
-        collectedCoins += _coins;
-        Debug.Log("Monedas: " + collectedCoins);
-
-        if(collectedCoins >= totalLevelCoins)
-            win();
+        playerProgression.AddCoins(_coins);
     }
 
     public int getCollectedCoins()
     {
-        return collectedCoins;
+        return playerProgression.getCurrentCoins();
     }
 
     public void win()
     {
         joystickEnabled = Playing = false;
-        Debug.LogWarning("GANASTE (Recolectaste todas las monedas)");
+        Debug.LogWarning("GANASTE (Llegaste a la bandera)");
     }
     public void lose()
     {
