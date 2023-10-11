@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\DoorToNextLevel.cs" />
     <Compile Include="Assets\Scripts\Collect.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\Finish.cs" />
     <Compile Include="Assets\Scripts\Game.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PuzzlePosition.cs" />

@@ -31,7 +31,7 @@ public class Game : MonoBehaviour
     public void win()
     {
         joystickEnabled = Playing = false;
-        Debug.LogWarning("GANASTE (Llegaste a la bandera)");
+        Debug.LogWarning("GANASTE (Llegaste a tu casa)");
     }
     public void lose()
     {
