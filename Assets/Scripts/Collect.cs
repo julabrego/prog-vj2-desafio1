@@ -16,7 +16,6 @@ public class Collect : MonoBehaviour
     private void Start()
     {
         game = FindObjectOfType<Game>();
-        game.TotalLevelCoins++;
     }
 
     private void OnEnable()
@@ -44,6 +43,14 @@ public class Collect : MonoBehaviour
 
     private void Update()
     {
-        if (!myAudioSource.isPlaying && isCollected) Destroy(gameObject);
+        if (!myAudioSource.isPlaying && isCollected) gameObject.SetActive(false);
+    }
+
+    public void Restore()
+    {
+        isCollected = false;
+        gameObject.SetActive(true);
+        mySpriteRenderer.enabled = true;
+        myCollider.enabled = true;
     }
 }
