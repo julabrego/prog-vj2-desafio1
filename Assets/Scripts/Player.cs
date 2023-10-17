@@ -1,30 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
     [Header("Configuracion")]
-    [SerializeField] private float vida = 5f;
+    [SerializeField] private int vida = 5;
 
     private Game game;
     private SpriteRenderer mySpriteRenderer;
     private CircleCollider2D myCollider;
+
+    [SerializeField]
+    private UnityEvent<int> OnLivesChanged;
 
     private void Start()
     {
         game = FindObjectOfType<Game>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         myCollider = GetComponent<CircleCollider2D>();
+
+        OnLivesChanged.Invoke(vida);
     }
-    public float Vida { get => vida; set => vida = value; }
+    public int Vida { get => vida; set => vida = value; }
 
     public void FixedUpdate()
     {
         if (!game.Playing && mySpriteRenderer.enabled)
             makeInvisible();
     }
-    public void ModificarVida(float puntos)
+    public void ModificarVida(int puntos)
     {
         Vida += puntos;
         if (Vida <= 0)
