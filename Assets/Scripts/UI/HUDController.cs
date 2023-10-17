@@ -39,7 +39,7 @@ public class HUDController : MonoBehaviour
 
     public void ShowGameOver(bool victory)
     {
-        messageText.text = victory ? "GANASTE. Llegaste a tu casa" : "GAME OVER";
+        messageText.text = victory ? "GANASTE. Llegaste a la meta" : "GAME OVER";
     }
 
     private bool isLifesContainerEmpty()
