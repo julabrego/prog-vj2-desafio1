@@ -9,6 +9,8 @@ public class PlayerProgression : MonoBehaviour
 
     //--------- Events ---------- //
     [SerializeField] UnityEvent<string> OnCoinsTextChanged;
+    [SerializeField] UnityEvent<string> OnMessageTriggered;
+
     private void Start()
     {
         progressionData.CurrentLevel = 0;
@@ -22,7 +24,6 @@ public class PlayerProgression : MonoBehaviour
     {
         progressionData.CurrentCoins += _coins;
         OnCoinsTextChanged.Invoke(getCurrentCoins().ToString());
-        Debug.Log("Monedas: " + progressionData.CurrentCoins);
     }
 
     public int getCurrentCoins()
@@ -36,13 +37,12 @@ public class PlayerProgression : MonoBehaviour
             jumpToNextLevel();
             return true;
         }
-        Debug.Log("Para cruzar a la siguiente isla necesitás " + progressionData.CoinsToNextLevel + " monedas.");
+        OnMessageTriggered.Invoke("Necesitás " + progressionData.CoinsToNextLevel + " monedas para cruzar.");
         return false;
     }
 
     public void jumpToNextLevel()
     {
-        Debug.Log("Has pasado al nivel " + progressionData.CurrentLevel);
         AddCoins(-progressionData.CoinsToNextLevel);
         progressionData.CurrentLevel++;
         progressionData.CoinsToNextLevel += 10;
@@ -52,4 +52,5 @@ public class PlayerProgression : MonoBehaviour
     {
         return progressionData.CurrentCoins >= progressionData.CoinsToNextLevel;
     }
+
 }

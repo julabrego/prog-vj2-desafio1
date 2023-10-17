@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Events;
 
 public class HUDController : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI coinsText;
     [SerializeField] GameObject liveIcon;
     [SerializeField] GameObject liveIconsContainer;
+    [SerializeField] TextMeshProUGUI messageText;
 
     public void UpdateLifeIconsHUD(int lives) {
         if (isLifesContainerEmpty())
@@ -28,6 +30,16 @@ public class HUDController : MonoBehaviour
     public void UpdateCoinsText(string coins)
     {
         coinsText.text = "Coins: " + coins;
+    }
+
+    public void ShowMessageText(string message)
+    {
+        messageText.text = message;
+    }
+
+    public void ShowGameOver(bool victory)
+    {
+        messageText.text = victory ? "GANASTE. Llegaste a tu casa" : "GAME OVER";
     }
 
     private bool isLifesContainerEmpty()
