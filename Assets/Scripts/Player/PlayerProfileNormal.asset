@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25f6e13e4c16144187d76109ac1fe86, type: 3}
   m_Name: PlayerProfileNormal
   m_EditorClassIdentifier: 
-  currentLevel: 3
-  currentCoins: 20
-  coinsToNextLevel: 40
+  currentLevel: 0
+  currentCoins: 0
+  coinsToNextLevel: 10
