@@ -18,25 +18,25 @@ public class PlayerProgression : MonoBehaviour
         progressionData.CurrentLevel = 0;
         progressionData.CurrentCoins = 0;
         progressionData.CoinsToNextLevel = 10;
-        progressionData.Vida = 5;
+        progressionData.Health = 5;
 
         OnCoinsTextChanged.Invoke(getCurrentCoins().ToString());
-        OnLivesChanged.Invoke(progressionData.Vida);
+        OnLivesChanged.Invoke(progressionData.Health);
     }
 
-    public void ModificarVida(int puntos)
+    public void UpdateHealth(int puntos)
     {
-        progressionData.Vida += puntos;
-        if (progressionData.Vida <= 0)
+        progressionData.Health += puntos;
+        if (progressionData.Health <= 0)
         {
             lose();
         }
-        OnLivesChanged.Invoke(progressionData.Vida);
+        OnLivesChanged.Invoke(progressionData.Health);
     }
 
     public bool isAlive()
     {
-        return progressionData.Vida > 0;
+        return progressionData.Health > 0;
     }
     public void AddCoins(int _coins)
     {
