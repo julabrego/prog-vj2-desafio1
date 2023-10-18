@@ -5,6 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerProgressionData", menuName = "ScriptableObjects/PlayerProgressionData", order = 1)]
 public class PlayerProgressionData : ScriptableObject
 {
+    [Header("Player configuration")]
+    [Tooltip("Vida del jugador")]
+    [SerializeField] private int vida;
+
     [SerializeField][Range(0, 3)]
     [Tooltip("Islas a las que el jugador tiene acceso")]
     private int currentLevel;
@@ -20,6 +24,7 @@ public class PlayerProgressionData : ScriptableObject
     private Queue<int> puzzleSequence;
     private Stack<int> pressedNumbers;
 
+    public int Vida { get => vida; set => vida = value; }
     public int CurrentLevel { get => currentLevel; set => currentLevel = value; }
     public int CurrentCoins { get => currentCoins; set => currentCoins = value; }
     public int CoinsToNextLevel { get => coinsToNextLevel; set => coinsToNextLevel = value; }

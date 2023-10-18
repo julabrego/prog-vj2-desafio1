@@ -15,7 +15,6 @@ public class Game : MonoBehaviour
     public bool Playing { get => playing; set => playing = value; }
     public PlayerProgression PlayerProgression { get => playerProgression; set => playerProgression = value; }
 
-    [SerializeField] UnityEvent<bool> OnEndGameTriggered;
 
     private void Start()
     {
@@ -31,22 +30,13 @@ public class Game : MonoBehaviour
         return PlayerProgression.getCurrentCoins();
     }
 
-    public void win()
+    public void StopGame()
     {
-        joystickEnabled = Playing = false;
-        OnEndGameTriggered.Invoke(true);
-        Debug.LogWarning("GANASTE (Llegaste a tu casa)");
-    }
-    public void lose()
-    {
-        joystickEnabled = Playing = false;
-        OnEndGameTriggered.Invoke(false);
-        Debug.LogWarning("PERDISTE (Tu personaje se quedó sin vida)");
+        Playing = JoystickEnabled = false;
     }
 
     public void GoToMainMenu()
     {
-        Debug.Log("Ir a Main Menu");
         SceneManager.LoadScene(0);
     }
 }

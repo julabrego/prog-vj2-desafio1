@@ -10,16 +10,34 @@ public class PlayerProgression : MonoBehaviour
     //--------- Events ---------- //
     [SerializeField] UnityEvent<string> OnCoinsTextChanged;
     [SerializeField] UnityEvent<string> OnMessageTriggered;
+    [SerializeField] UnityEvent<int> OnLivesChanged;
+    [SerializeField] UnityEvent<bool> OnEndGameTriggered;
 
     private void Start()
     {
         progressionData.CurrentLevel = 0;
         progressionData.CurrentCoins = 0;
         progressionData.CoinsToNextLevel = 10;
+        progressionData.Vida = 5;
 
         OnCoinsTextChanged.Invoke(getCurrentCoins().ToString());
+        OnLivesChanged.Invoke(progressionData.Vida);
     }
 
+    public void ModificarVida(int puntos)
+    {
+        progressionData.Vida += puntos;
+        if (progressionData.Vida <= 0)
+        {
+            lose();
+        }
+        OnLivesChanged.Invoke(progressionData.Vida);
+    }
+
+    public bool isAlive()
+    {
+        return progressionData.Vida > 0;
+    }
     public void AddCoins(int _coins)
     {
         progressionData.CurrentCoins += _coins;
@@ -46,6 +64,15 @@ public class PlayerProgression : MonoBehaviour
         AddCoins(-progressionData.CoinsToNextLevel);
         progressionData.CurrentLevel++;
         progressionData.CoinsToNextLevel += 10;
+    }
+
+    public void win()
+    {
+        OnEndGameTriggered.Invoke(true);
+    }
+    public void lose()
+    {
+        OnEndGameTriggered.Invoke(false);
     }
 
     private bool canCrossToNextLevel()

@@ -5,48 +5,28 @@ using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
-    [Header("Configuracion")]
-    [SerializeField] private int vida = 5;
-
     private Game game;
     private SpriteRenderer mySpriteRenderer;
     private CircleCollider2D myCollider;
 
-    [SerializeField]
-    private UnityEvent<int> OnLivesChanged;
+    [SerializeField] UnityEvent<int> OnPlayerReceivesDamage;
 
     private void Start()
     {
         game = FindObjectOfType<Game>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         myCollider = GetComponent<CircleCollider2D>();
-
-        OnLivesChanged.Invoke(vida);
     }
-    public int Vida { get => vida; set => vida = value; }
 
     public void FixedUpdate()
     {
         if (!game.Playing && mySpriteRenderer.enabled)
             makeInvisible();
     }
-    public void ModificarVida(int puntos)
-    {
-        Vida += puntos;
-        if (Vida <= 0)
-        {
-            game.lose();
-        }
-        else
-        {
-            Debug.Log(" VIDA: " + vida);
-        }
-        OnLivesChanged.Invoke(vida);
-    }
 
-    public bool isAlive()
+    public void ReceiveDamage(int points)
     {
-        return Vida > 0;
+        OnPlayerReceivesDamage.Invoke(-points);
     }
 
     private void makeInvisible()
