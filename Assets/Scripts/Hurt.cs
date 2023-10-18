@@ -1,22 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Herir : MonoBehaviour
 {
     // Variables a configurar desde el editor
     [Header("Configuracion")]
-    [SerializeField] float puntos = 5f;
- 
+    [SerializeField] int damagePoints = 1;
+     
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Player jugador = collision.gameObject.GetComponent<Player>();
-
-            if (jugador.isAlive())
-                jugador.ModificarVida(-puntos);
-            
+            Player player = collision.gameObject.GetComponent<Player>();
+            player.ReceiveDamage(damagePoints);
         }
     }
 }

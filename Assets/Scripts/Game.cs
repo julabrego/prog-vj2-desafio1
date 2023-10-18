@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
-
     private PlayerProgression playerProgression;
 
     private bool joystickEnabled = false;
@@ -13,6 +14,7 @@ public class Game : MonoBehaviour
     public bool JoystickEnabled { get => joystickEnabled; set => joystickEnabled = value; }
     public bool Playing { get => playing; set => playing = value; }
     public PlayerProgression PlayerProgression { get => playerProgression; set => playerProgression = value; }
+
 
     private void Start()
     {
@@ -28,14 +30,13 @@ public class Game : MonoBehaviour
         return PlayerProgression.getCurrentCoins();
     }
 
-    public void win()
+    public void StopGame()
     {
-        joystickEnabled = Playing = false;
-        Debug.LogWarning("GANASTE (Llegaste a tu casa)");
+        Playing = JoystickEnabled = false;
     }
-    public void lose()
+
+    public void GoToMainMenu()
     {
-        joystickEnabled = Playing = false;
-        Debug.LogWarning("PERDISTE (Tu personaje se quedó sin vida)");
+        SceneManager.LoadScene(0);
     }
 }
