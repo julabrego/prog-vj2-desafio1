@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Enemies\FixedMovement.cs" />
     <Compile Include="Assets\Scripts\UI\MainUIController.cs" />
     <Compile Include="Assets\Scripts\DoorToNextLevel.cs" />
+    <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\Scripts\Enemies\Chase.cs" />
     <Compile Include="Assets\Scripts\Spawners\GenerarObjetoLoop.cs" />
     <Compile Include="Assets\Scripts\Collect.cs" />
