@@ -19,6 +19,7 @@ public class Game : MonoBehaviour
     private void Start()
     {
         PlayerProgression = gameObject.GetComponent<PlayerProgression>();
+        GameManager.Instance.ResetScore();
     }
     public void AddCoins(int _coins)
     {
@@ -37,6 +38,6 @@ public class Game : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        SceneManager.LoadScene(0);
+        ApplicationManager.Instance.GoToPreviousScene();
     }
 }

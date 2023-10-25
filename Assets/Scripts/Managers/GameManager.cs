@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     private int score;
+    private int highScore;
 
     private void Awake()
     {
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
     public void AddScore(int _score)
     {
         score += _score;
+        if(score > highScore) highScore = score;
     }
 
     public void ResetScore()
@@ -34,6 +36,11 @@ public class GameManager : MonoBehaviour
     public int GetScore()
     {
         return score;
+    }
+
+    public int GetHighScore()
+    {
+        return highScore;
     }
 
 }

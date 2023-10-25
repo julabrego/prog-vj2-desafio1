@@ -41,6 +41,7 @@ public class PlayerProgression : MonoBehaviour
     public void AddCoins(int _coins)
     {
         progressionData.CurrentCoins += _coins;
+        GameManager.Instance.AddScore(_coins * 10);
         OnCoinsTextChanged.Invoke(getCurrentCoins().ToString());
     }
 

@@ -32,6 +32,7 @@ public class Collect : MonoBehaviour
             isCollected = true;
 
             Player jugador = collision.gameObject.GetComponent<Player>();
+            
             game.AddCoins(1);
 
             mySpriteRenderer.enabled = false;

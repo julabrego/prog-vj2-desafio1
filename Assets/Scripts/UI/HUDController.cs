@@ -29,7 +29,7 @@ public class HUDController : MonoBehaviour
     }
     public void UpdateCoinsText(string coins)
     {
-        coinsText.text = "Coins: " + coins;
+        coinsText.text = "Coins: " + coins + " | Score: " + GameManager.Instance.GetScore().ToString();
     }
 
     public void ShowMessageText(string message)

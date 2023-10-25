@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\PlayerSpriteAnimation.cs" />
     <Compile Include="Assets\Scripts\Enemies\Rotate.cs" />
+    <Compile Include="Assets\Scripts\Managers\ApplicationManager.cs" />
     <Compile Include="Assets\Scripts\PlayerProgressionData.cs" />
     <Compile Include="Assets\Scripts\Projectile\straightProjectile.cs" />
     <Compile Include="Assets\Scripts\SelfDestructChilds.cs" />
