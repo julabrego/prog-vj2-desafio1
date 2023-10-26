@@ -16,5 +16,9 @@ public abstract class WalkingEnemy : MonoBehaviour
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
     }
+    private void FixedUpdate()
+    {
+        Walk();
+    }
 
 }

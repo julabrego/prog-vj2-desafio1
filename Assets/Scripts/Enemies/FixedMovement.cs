@@ -24,11 +24,6 @@ public class FixedMovement : WalkingEnemy
         direction = new Vector2(startDirection, 0f);
     }
 
-    private void FixedUpdate()
-    {
-        Walk();
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         reverseDirection();
