@@ -2,44 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chase : MonoBehaviour
+public class Chase : WalkingEnemy
 {
-    // Variables a configurar desde el editor
     [Header("Configuracion")]
-    [SerializeField] float velocidad = 5f;
+    [SerializeField] private Transform target;
 
-    // Referencia al transform del jugador serializada
-    [SerializeField] Transform jugador;
-
-    // Variable para referenciar otro componente del objeto
-    private Rigidbody2D miRigidbody2D;
     private Vector2 direccion;
 
-    // Animación
     private Animator miAnimator;
-    private SpriteRenderer miSprite;
 
-    public Transform Jugador { get => jugador; set => jugador = value; }
-    public float Velocidad { get => velocidad; set => velocidad = value; }
+    public Transform Target { get => target; set => target = value; }
+
+    public override void Walk()
+    {
+        direccion = (target.position - transform.position).normalized;
+        followTarget();
+    }
+
+    public void SetSpeed(int _speed)
+    {
+        speed = _speed;
+    }
 
     private void Awake()
     {
-        miRigidbody2D = GetComponent<Rigidbody2D>();
         miAnimator = GetComponent<Animator>();
-        miSprite = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate()
     {
-        direccion = (Jugador.position - transform.position).normalized;
-        follow(Jugador); 
+        Walk();
     }
 
-    private void follow(Transform jugador)
+    private void followTarget()
     {
-        if (Vector2.Distance(jugador.position, transform.position) < 5)
+        if (Vector2.Distance(target.position, transform.position) < 5)
         {
-            miRigidbody2D.MovePosition(miRigidbody2D.position + direccion * (Velocidad * Time.fixedDeltaTime));
+            rigidBody2D.MovePosition(rigidBody2D.position + direccion * (speed * Time.fixedDeltaTime));
             miAnimator.gameObject.GetComponent<Animator>().enabled = true;
         }
         else

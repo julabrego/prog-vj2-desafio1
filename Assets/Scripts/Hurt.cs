@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Herir : MonoBehaviour
+public class Hurt : MonoBehaviour
 {
     // Variables a configurar desde el editor
     [Header("Configuracion")]
