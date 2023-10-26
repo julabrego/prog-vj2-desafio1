@@ -12,20 +12,16 @@ public class HUDController : MonoBehaviour
     [SerializeField] TextMeshProUGUI messageText;
     [SerializeField] GameObject pauseModal;
 
-    public void UpdateLifeIconsHUD(int lives) {
-        if (isLifesContainerEmpty())
+    public void UpdateLifeIconsHUD(int lives)
+    {
+        if (liveIconsQuantity() != lives)
         {
-            loadLifesContainer(lives);
-            return;
-        }
+            cleanLivesIcons();
 
-        if(liveIconsQuantity() > lives)
-        {
-            removeLastLiveIcon();
-        }
-        else
-        {
-            createLiveIcon();
+            for (int i = 0; i < lives; i++)
+            {
+                createLiveIcon();
+            }
         }
     }
     public void UpdateCoinsText(string coins)
@@ -66,28 +62,18 @@ public class HUDController : MonoBehaviour
 
     }
 
-    private bool isLifesContainerEmpty()
-    {
-        return liveIconsContainer.transform.childCount == 0;
-    }
-
-    private void loadLifesContainer(int iconsQuantity)
-    {
-        for(int i = 0; i < iconsQuantity; i++)
-        {
-            Instantiate(liveIcon, liveIconsContainer.transform);
-        }
-    }
 
     private int liveIconsQuantity()
     {
         return liveIconsContainer.transform.childCount;
     }
 
-    private void removeLastLiveIcon()
+    private void cleanLivesIcons()
     {
-        Transform container = liveIconsContainer.transform;
-        GameObject.Destroy(container.GetChild(container.childCount - 1).gameObject);
+        foreach (Transform icon in liveIconsContainer.transform)
+        {
+            GameObject.Destroy(icon.gameObject);
+        }
     }
 
     private void createLiveIcon()

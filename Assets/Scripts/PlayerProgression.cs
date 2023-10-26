@@ -39,11 +39,12 @@ public class PlayerProgression : MonoBehaviour
     public void UpdateHealth(int puntos)
     {
         progressionData.Health += puntos;
+        OnLivesChanged.Invoke(progressionData.Health);
+        
         if (progressionData.Health <= 0)
         {
-            lose();
+            GameEvents.TriggerGameOver();
         }
-        OnLivesChanged.Invoke(progressionData.Health);
     }
 
     public bool isAlive()
