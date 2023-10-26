@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\PlayerProgressionData.cs" />
     <Compile Include="Assets\Scripts\Projectile\straightProjectile.cs" />
     <Compile Include="Assets\Scripts\SelfDestructChilds.cs" />
+    <Compile Include="Assets\Scripts\Events\GameEvents.cs" />
     <Compile Include="Assets\Scripts\PlayerProgression.cs" />
     <Compile Include="Assets\Scripts\PuzzleSequence.cs" />
     <Compile Include="Assets\Scripts\Hurt.cs" />

@@ -10,6 +10,7 @@ public class HUDController : MonoBehaviour
     [SerializeField] GameObject liveIcon;
     [SerializeField] GameObject liveIconsContainer;
     [SerializeField] TextMeshProUGUI messageText;
+    [SerializeField] GameObject pauseModal;
 
     public void UpdateLifeIconsHUD(int lives) {
         if (isLifesContainerEmpty())
@@ -40,6 +41,29 @@ public class HUDController : MonoBehaviour
     public void ShowGameOver(bool victory)
     {
         messageText.text = victory ? "GANASTE. Llegaste a la meta" : "GAME OVER";
+    }
+
+    private void OnEnable()
+    {
+        GameEvents.OnPause += PauseGame;
+        GameEvents.OnResume += ResumeGame;
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.OnPause -= PauseGame;
+        GameEvents.OnResume -= ResumeGame;
+    }
+
+    private void PauseGame()
+    {
+        pauseModal.gameObject.SetActive(true);
+    }
+
+    private void ResumeGame()
+    {
+        pauseModal.gameObject.SetActive(false);
+
     }
 
     private bool isLifesContainerEmpty()
