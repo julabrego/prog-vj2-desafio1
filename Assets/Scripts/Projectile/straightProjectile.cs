@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class StraightProjectile : Projectile
 {
+    protected override void CalculateDirection()
+    {
+        float angle = transform.eulerAngles.z * Mathf.Deg2Rad;
+        float directionX = Mathf.Cos(angle);
+        float directionY = Mathf.Sin(angle);
+
+        direction = new Vector2(directionX, directionY).normalized;
+    }
 
     protected override void Move()
     {
-        // Aplica la velocidad al Rigidbody
-        Debug.Log(direction);
-        Debug.Log(speed);
         rb.velocity = direction * speed;
     }
+
 }

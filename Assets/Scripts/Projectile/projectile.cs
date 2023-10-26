@@ -19,16 +19,7 @@ public abstract class Projectile : MonoBehaviour
 
     private void OnEnable()
     {
-        // Obtén el ángulo de rotación en radianes
-        float anguloEnRadianes = transform.eulerAngles.z * Mathf.Deg2Rad;
-
-        // Calcula los componentes x y y del vector de dirección usando funciones trigonométricas
-        float direccionX = Mathf.Cos(anguloEnRadianes);
-        float direccionY = Mathf.Sin(anguloEnRadianes);
-
-        // Asigna la dirección en la que se moverá el objeto basado en la rotación del transform
-        direction = new Vector2(direccionX, direccionY).normalized;
-
+        CalculateDirection();
         Move();
     }
 
@@ -38,4 +29,6 @@ public abstract class Projectile : MonoBehaviour
     }
 
     protected abstract void Move();
+    protected abstract void CalculateDirection();
+
 }
