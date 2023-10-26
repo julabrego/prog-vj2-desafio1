@@ -13,6 +13,18 @@ public class PlayerProgression : MonoBehaviour
     [SerializeField] UnityEvent<int> OnLivesChanged;
     [SerializeField] UnityEvent<bool> OnEndGameTriggered;
 
+    private void OnEnable()
+    {
+        GameEvents.OnVictory += win;
+        GameEvents.OnGameOver += lose;
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.OnVictory -= win;
+        GameEvents.OnGameOver -= lose;
+    }
+
     private void Start()
     {
         progressionData.CurrentLevel = 0;

@@ -8,7 +8,6 @@ public static class GameEvents
     public static event Action OnVictory;
 
     public static void TriggerPause() => OnPause?.Invoke();
-
     public static void TriggerResume() => OnResume?.Invoke();
     public static void TriggerGameOver() => OnGameOver?.Invoke();
     public static void TriggerVictory() => OnVictory?.Invoke();
