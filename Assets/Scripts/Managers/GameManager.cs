@@ -10,13 +10,14 @@ public class GameManager : MonoBehaviour
     private int highScore;
 
     [SerializeField] private PersistenceKeys persistanceKeys;
+    public PersistenceKeys PersistanceKeys { get => persistanceKeys; private set => persistanceKeys = value; }
     public void AddScore(int _score)
     {
         score += _score;
         if (score > highScore)
         {
             highScore = score;
-            PersistenceManager.Instance.SetInt(persistanceKeys.HighScoreKey, highScore);
+            PersistenceManager.Instance.SetInt(PersistanceKeys.HighScoreKey, highScore);
         }
     }
 
@@ -41,7 +42,7 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            highScore = PersistenceManager.Instance.GetInt(persistanceKeys.HighScoreKey);
+            highScore = PersistenceManager.Instance.GetInt(PersistanceKeys.HighScoreKey);
         }
         else
         {
