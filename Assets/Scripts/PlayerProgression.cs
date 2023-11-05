@@ -58,6 +58,12 @@ public class PlayerProgression : MonoBehaviour
         OnCoinsTextChanged.Invoke(getCurrentCoins().ToString());
     }
 
+    public void SubstractCoins(int _coins)
+    {
+        progressionData.CurrentCoins -= _coins;
+        OnCoinsTextChanged.Invoke(getCurrentCoins().ToString());
+    }
+
     public int getCurrentCoins()
     {
         return progressionData.CurrentCoins;
@@ -75,14 +81,18 @@ public class PlayerProgression : MonoBehaviour
 
     public void jumpToNextLevel()
     {
-        AddCoins(-progressionData.CoinsToNextLevel);
+        SubstractCoins(progressionData.CoinsToNextLevel);
+        GameManager.Instance.AddScore(100);
         progressionData.CurrentLevel++;
         progressionData.CoinsToNextLevel += 10;
+        OnCoinsTextChanged.Invoke(getCurrentCoins().ToString());
     }
 
     public void win()
     {
+        GameManager.Instance.AddScore(1000);
         OnEndGameTriggered.Invoke(true);
+        OnCoinsTextChanged.Invoke(getCurrentCoins().ToString());
     }
     public void lose()
     {

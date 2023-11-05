@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            highScore = PersistenceManager.Instance.GetInt(PersistanceKeys.HighScoreKey);
+            highScore = Mathf.Max(PersistenceManager.Instance.GetInt(PersistanceKeys.HighScoreKey), 0);
         }
         else
         {
