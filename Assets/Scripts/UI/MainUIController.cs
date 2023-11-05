@@ -10,14 +10,7 @@ public class MainUIController : MonoBehaviour
 
     private void Start()
     {
-        if(GameManager.Instance != null)
-        {
-            highScoreText.text = "High Score: " + GameManager.Instance.GetHighScore();
-        }
-        else
-        {
-            Destroy(highScoreText);
-        }
+        highScoreText.text = "High Score: " + GameManager.Instance.GetHighScore();
     }
     public void LoadNextScene()
     {
