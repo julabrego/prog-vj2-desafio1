@@ -77,19 +77,19 @@ public class PersistenceManager : MonoBehaviour
 
     public void SaveMusicConfig(bool status)
     {
-        SetBool(GameManager.Instance.PersistanceKeys.MusicKey, status);
+        SetBool(GameManager.Instance.PersistenceKeys.MusicKey, status);
         Debug.Log("Music toggle: " + status);
     }
 
     public void SaveSoundFxConfig(bool status)
     {
-        SetBool(GameManager.Instance.PersistanceKeys.SoundFXKey, status);
+        SetBool(GameManager.Instance.PersistenceKeys.SoundFXKey, status);
         Debug.Log("Sound toggle: " + status);
     }
 
     public void SaveVolumeConfig(float volume)
     {
-        SetFloat(GameManager.Instance.PersistanceKeys.VolumeKey, volume);
+        SetFloat(GameManager.Instance.PersistenceKeys.VolumeKey, volume);
         Debug.Log("Volumen: " + volume);
     }
 }

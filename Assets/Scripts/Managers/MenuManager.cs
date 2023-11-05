@@ -11,9 +11,9 @@ public class MenuManager : MonoBehaviour
     
     void Start()
     {
-        volumeSlider.value = PersistenceManager.Instance.GetFloat(GameManager.Instance.PersistanceKeys.VolumeKey);
-        soundFxToggle.isOn = PersistenceManager.Instance.GetBool(GameManager.Instance.PersistanceKeys.SoundFXKey);
-        musicToggle.isOn = PersistenceManager.Instance.GetBool(GameManager.Instance.PersistanceKeys.MusicKey);
+        volumeSlider.value = PersistenceManager.Instance.GetFloat(GameManager.Instance.PersistenceKeys.VolumeKey);
+        soundFxToggle.isOn = PersistenceManager.Instance.GetBool(GameManager.Instance.PersistenceKeys.SoundFXKey);
+        musicToggle.isOn = PersistenceManager.Instance.GetBool(GameManager.Instance.PersistenceKeys.MusicKey);
     }
 
     // Update is called once per frame
