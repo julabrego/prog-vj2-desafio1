@@ -13,6 +13,18 @@ public class PlayerProgression : MonoBehaviour
     [SerializeField] UnityEvent<int> OnLivesChanged;
     [SerializeField] UnityEvent<bool> OnEndGameTriggered;
 
+    private void OnEnable()
+    {
+        GameEvents.OnVictory += win;
+        GameEvents.OnGameOver += lose;
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.OnVictory -= win;
+        GameEvents.OnGameOver -= lose;
+    }
+
     private void Start()
     {
         progressionData.CurrentLevel = 0;
@@ -27,11 +39,12 @@ public class PlayerProgression : MonoBehaviour
     public void UpdateHealth(int puntos)
     {
         progressionData.Health += puntos;
+        OnLivesChanged.Invoke(progressionData.Health);
+        
         if (progressionData.Health <= 0)
         {
-            lose();
+            GameEvents.TriggerGameOver();
         }
-        OnLivesChanged.Invoke(progressionData.Health);
     }
 
     public bool isAlive()
@@ -41,6 +54,7 @@ public class PlayerProgression : MonoBehaviour
     public void AddCoins(int _coins)
     {
         progressionData.CurrentCoins += _coins;
+        GameManager.Instance.AddScore(_coins * 10);
         OnCoinsTextChanged.Invoke(getCurrentCoins().ToString());
     }
 

@@ -15,10 +15,10 @@ public class Game : MonoBehaviour
     public bool Playing { get => playing; set => playing = value; }
     public PlayerProgression PlayerProgression { get => playerProgression; set => playerProgression = value; }
 
-
     private void Start()
     {
         PlayerProgression = gameObject.GetComponent<PlayerProgression>();
+        GameManager.Instance.ResetScore();
     }
     public void AddCoins(int _coins)
     {
@@ -37,6 +37,6 @@ public class Game : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        SceneManager.LoadScene(0);
+        ApplicationManager.Instance.GoToPreviousScene();
     }
 }

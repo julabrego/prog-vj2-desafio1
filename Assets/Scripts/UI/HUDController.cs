@@ -10,26 +10,23 @@ public class HUDController : MonoBehaviour
     [SerializeField] GameObject liveIcon;
     [SerializeField] GameObject liveIconsContainer;
     [SerializeField] TextMeshProUGUI messageText;
+    [SerializeField] GameObject pauseModal;
 
-    public void UpdateLifeIconsHUD(int lives) {
-        if (isLifesContainerEmpty())
+    public void UpdateLifeIconsHUD(int lives)
+    {
+        if (liveIconsQuantity() != lives)
         {
-            loadLifesContainer(lives);
-            return;
-        }
+            cleanLivesIcons();
 
-        if(liveIconsQuantity() > lives)
-        {
-            removeLastLiveIcon();
-        }
-        else
-        {
-            createLiveIcon();
+            for (int i = 0; i < lives; i++)
+            {
+                createLiveIcon();
+            }
         }
     }
     public void UpdateCoinsText(string coins)
     {
-        coinsText.text = "Coins: " + coins;
+        coinsText.text = "Coins: " + coins + " | Score: " + GameManager.Instance.GetScore().ToString();
     }
 
     public void ShowMessageText(string message)
@@ -42,28 +39,41 @@ public class HUDController : MonoBehaviour
         messageText.text = victory ? "GANASTE. Llegaste a la meta" : "GAME OVER";
     }
 
-    private bool isLifesContainerEmpty()
+    private void OnEnable()
     {
-        return liveIconsContainer.transform.childCount == 0;
+        GameEvents.OnPause += PauseGame;
+        GameEvents.OnResume += ResumeGame;
     }
 
-    private void loadLifesContainer(int iconsQuantity)
+    private void OnDisable()
     {
-        for(int i = 0; i < iconsQuantity; i++)
-        {
-            Instantiate(liveIcon, liveIconsContainer.transform);
-        }
+        GameEvents.OnPause -= PauseGame;
+        GameEvents.OnResume -= ResumeGame;
     }
+
+    private void PauseGame()
+    {
+        pauseModal.gameObject.SetActive(true);
+    }
+
+    private void ResumeGame()
+    {
+        pauseModal.gameObject.SetActive(false);
+
+    }
+
 
     private int liveIconsQuantity()
     {
         return liveIconsContainer.transform.childCount;
     }
 
-    private void removeLastLiveIcon()
+    private void cleanLivesIcons()
     {
-        Transform container = liveIconsContainer.transform;
-        GameObject.Destroy(container.GetChild(container.childCount - 1).gameObject);
+        foreach (Transform icon in liveIconsContainer.transform)
+        {
+            GameObject.Destroy(icon.gameObject);
+        }
     }
 
     private void createLiveIcon()

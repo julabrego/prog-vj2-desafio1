@@ -29,8 +29,8 @@ public class GeneradorObjetoAleatorio : MonoBehaviour
 
         if (newObject.GetComponent<Chase>())
         {
-            newObject.GetComponent<Chase>().Jugador = jugador;
-            newObject.GetComponent<Chase>().Velocidad = 2;
+            newObject.GetComponent<Chase>().Target = jugador;
+            newObject.GetComponent<Chase>().SetSpeed(2);
         }
 
         if (gameObject.GetComponent<SelfDestructChilds>())
