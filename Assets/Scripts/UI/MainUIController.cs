@@ -7,13 +7,54 @@ using UnityEngine.SceneManagement;
 public class MainUIController : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI highScoreText;
+    [SerializeField] private MainMenuViewShown viewSelected;
+    [SerializeField] GameObject[] views;
 
+    public void OpenOptions()
+    {
+        GoToOption(MainMenuViewShown.OPTIONS);
+    }
+
+    public void OpenMainMenu()
+    {
+        GoToOption(MainMenuViewShown.MAIN);
+    }
     private void Start()
     {
         highScoreText.text = "High Score: " + GameManager.Instance.GetHighScore();
+        UpdateView();
     }
+
+    private void GoToOption(MainMenuViewShown option)
+    {
+        viewSelected = option;
+        UpdateView();
+    }
+
+    private void UpdateView()
+    {
+        switch (viewSelected) {
+            case MainMenuViewShown.OPTIONS:
+                views[0].SetActive(false);
+                views[1].SetActive(true);
+                break;
+            case MainMenuViewShown.MAIN:
+            default:
+                views[0].SetActive(true);
+                views[1].SetActive(false);
+                break;
+        }
+    }
+
     public void LoadNextScene()
     {
         ApplicationManager.Instance.GoToNextScene();
     }
+
+}
+
+public enum MainMenuViewShown
+{
+    MAIN,
+    OPTIONS
 }
