@@ -10,6 +10,10 @@ public class MainUIController : MonoBehaviour
     [SerializeField] private MainMenuViewShown viewSelected;
     [SerializeField] GameObject[] views;
 
+    public void OpenCredits()
+    {
+        GoToOption(MainMenuViewShown.CREDITS);
+    }
     public void OpenOptions()
     {
         GoToOption(MainMenuViewShown.OPTIONS);
@@ -34,14 +38,21 @@ public class MainUIController : MonoBehaviour
     private void UpdateView()
     {
         switch (viewSelected) {
+            case MainMenuViewShown.CREDITS:
+                views[0].SetActive(false);
+                views[1].SetActive(false);
+                views[2].SetActive(true);
+                break;
             case MainMenuViewShown.OPTIONS:
                 views[0].SetActive(false);
                 views[1].SetActive(true);
+                views[2].SetActive(false);
                 break;
             case MainMenuViewShown.MAIN:
             default:
                 views[0].SetActive(true);
                 views[1].SetActive(false);
+                views[2].SetActive(false);
                 break;
         }
     }
@@ -56,5 +67,6 @@ public class MainUIController : MonoBehaviour
 public enum MainMenuViewShown
 {
     MAIN,
-    OPTIONS
+    OPTIONS,
+    CREDITS
 }
