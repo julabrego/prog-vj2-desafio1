@@ -176,7 +176,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinSFX: {fileID: 8300000, guid: 4a111d636d244494a9761dc00da9bc10, type: 3}
-  SFXSource: {fileID: 0}
 --- !u!82 &8630032466314659827
 AudioSource:
   m_ObjectHideFlags: 0

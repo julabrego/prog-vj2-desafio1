@@ -25,6 +25,7 @@ public class Collect : MonoBehaviour
         myCollider = GetComponent<BoxCollider2D>();
         myParticleSystem = GetComponent<ParticleSystem>();
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player") && !isCollected)

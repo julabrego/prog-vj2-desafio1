@@ -2,14 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainUIController : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI highScoreText;
     [SerializeField] private MainMenuViewShown viewSelected;
     [SerializeField] GameObject[] views;
+    [SerializeField] private Slider volumeSlider;
+    [SerializeField] private Toggle soundFxToggle;
+    [SerializeField] private Toggle musicToggle;
 
+    private void Start()
+    {
+        LoadPersistedValues();
+    }
+
+    public void LoadPersistedValues()
+    {
+        volumeSlider.value = PersistenceManager.Instance.GetFloat(GameManager.Instance.PersistenceKeys.VolumeKey);
+        soundFxToggle.isOn = PersistenceManager.Instance.GetBool(GameManager.Instance.PersistenceKeys.SoundFXKey);
+        musicToggle.isOn = PersistenceManager.Instance.GetBool(GameManager.Instance.PersistenceKeys.MusicKey);
+        Debug.Log("Reloadearrrr");
+
+    }
     public void OpenCredits()
     {
         GoToOption(MainMenuViewShown.CREDITS);
@@ -23,9 +39,10 @@ public class MainUIController : MonoBehaviour
     {
         GoToOption(MainMenuViewShown.MAIN);
     }
-    private void Start()
+    private void OnEnable()
     {
         highScoreText.text = "High Score: " + GameManager.Instance.GetHighScore();
+        LoadPersistedValues();
         UpdateView();
     }
 
