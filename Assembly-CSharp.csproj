@@ -96,7 +96,6 @@
     <Compile Include="Assets\Scripts\Spawners\GeneradorDiaNoche.cs" />
     <Compile Include="Assets\Scripts\Spawners\ObjectPool.cs" />
     <Compile Include="Assets\Scripts\Spawners\GenerarObjetoAleatorio.cs" />
-    <Compile Include="Assets\isactive.cs" />
     <Compile Include="Assets\Scripts\SelfDestruct.cs" />
   </ItemGroup>
   <ItemGroup>
