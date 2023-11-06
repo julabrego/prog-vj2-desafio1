@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Managers\PersistenceManager.cs" />
     <Compile Include="Assets\Scripts\Enemies\WalkingEnemy.cs" />
+    <Compile Include="Assets\Scripts\Audio\AbstractAudioConfiguration.cs" />
     <Compile Include="Assets\Scripts\PlayerSpriteAnimation.cs" />
     <Compile Include="Assets\Scripts\Enemies\Rotate.cs" />
     <Compile Include="Assets\Scripts\Managers\ApplicationManager.cs" />
@@ -72,18 +73,21 @@
     <Compile Include="Assets\Scripts\PlayerProgression.cs" />
     <Compile Include="Assets\Scripts\PuzzleSequence.cs" />
     <Compile Include="Assets\Scripts\Hurt.cs" />
+    <Compile Include="Assets\Scripts\Audio\MusicConfiguration.cs" />
     <Compile Include="Assets\Scripts\Managers\MenuManager.cs" />
     <Compile Include="Assets\Scripts\Enemies\FixedMovement.cs" />
     <Compile Include="Assets\Scripts\UI\MainUIController.cs" />
     <Compile Include="Assets\Scripts\DoorToNextLevel.cs" />
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\Scripts\Enemies\Chase.cs" />
+    <Compile Include="Assets\Scripts\Events\SoundFXEvents.cs" />
     <Compile Include="Assets\Scripts\Spawners\GenerarObjetoLoop.cs" />
     <Compile Include="Assets\Scripts\Collect.cs" />
     <Compile Include="Assets\Scripts\UI\HUDController.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Projectile\projectile.cs" />
     <Compile Include="Assets\Scripts\Finish.cs" />
+    <Compile Include="Assets\Scripts\Audio\SoundFXConfiguration.cs" />
     <Compile Include="Assets\Scripts\Game.cs" />
     <Compile Include="Assets\Scripts\Spawners\GeneradorObjeto.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />

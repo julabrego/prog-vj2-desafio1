@@ -103,5 +103,4 @@ public class PlayerProgression : MonoBehaviour
     {
         return progressionData.CurrentCoins >= progressionData.CoinsToNextLevel;
     }
-
 }
