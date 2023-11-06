@@ -23,8 +23,6 @@ public class MainUIController : MonoBehaviour
         volumeSlider.value = PersistenceManager.Instance.GetFloat(GameManager.Instance.PersistenceKeys.VolumeKey);
         soundFxToggle.isOn = PersistenceManager.Instance.GetBool(GameManager.Instance.PersistenceKeys.SoundFXKey);
         musicToggle.isOn = PersistenceManager.Instance.GetBool(GameManager.Instance.PersistenceKeys.MusicKey);
-        Debug.Log("Reloadearrrr");
-
     }
     public void OpenCredits()
     {
@@ -72,6 +70,21 @@ public class MainUIController : MonoBehaviour
                 views[2].SetActive(false);
                 break;
         }
+    }
+
+    public void SaveMusicConfig(bool status)
+    {
+        PersistenceManager.Instance.SaveMusicConfig(status);
+    }
+
+    public void SaveSoundFxConfig(bool status)
+    {
+        PersistenceManager.Instance.SaveSoundFxConfig(status);
+    }
+
+    public void SaveVolumeConfig(float volume)
+    {
+        PersistenceManager.Instance.SaveVolumeConfig(volume);
     }
 
     public void LoadNextScene()
