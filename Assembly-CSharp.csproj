@@ -93,10 +93,12 @@
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PuzzlePosition.cs" />
     <Compile Include="Assets\Scripts\Spawners\GenerarObjetoLoopWithPool.cs" />
+    <Compile Include="Assets\Scripts\Animations\DeadAnimation.cs" />
     <Compile Include="Assets\Scripts\Spawners\GeneradorDiaNoche.cs" />
     <Compile Include="Assets\Scripts\Spawners\ObjectPool.cs" />
     <Compile Include="Assets\Scripts\Spawners\GenerarObjetoAleatorio.cs" />
     <Compile Include="Assets\Scripts\SelfDestruct.cs" />
+    <Compile Include="Assets\Scripts\Animations\LittlePersonAnimation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

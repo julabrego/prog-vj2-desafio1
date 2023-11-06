@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
     private void makeInvisible()
     {
         myCollider.enabled = false;
-        mySpriteRenderer.enabled = false;
+        //mySpriteRenderer.enabled = false;
     }
 
     private IEnumerator BecomeTemporarilyInvincible()
