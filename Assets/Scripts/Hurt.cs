@@ -10,7 +10,7 @@ public class Hurt : MonoBehaviour
     [Header("Configuracion")]
     [SerializeField] int damagePoints = 1;
     [SerializeField] Boolean disableOnHit = false;
-     
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))

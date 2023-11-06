@@ -16,17 +16,44 @@ public class Player : MonoBehaviour
     [Tooltip("Delta time para manejar velocidad de invincible frames (parpadeo)")]
     private float invincibilityDeltaTime = 0.12f;
 
+    [SerializeField]
+    [Tooltip("Sonido de daño")]
+    private AudioClip hitSFX;
+
+    [SerializeField]
+    [Tooltip("Sonido de Game Over")]
+    private AudioClip gameOverSFX;
+
+    [SerializeField]
+    [Tooltip("Sonido de victoria")]
+    private AudioClip victorySFX;
+
+    private AudioSource myAudioSource;
+
     private Game game;
     private SpriteRenderer mySpriteRenderer;
     private CircleCollider2D myCollider;
 
     private bool isInvincible = false;
 
+    private void OnEnable()
+    {
+        GameEvents.OnGameOver += playGameOverSFX;
+        GameEvents.OnVictory += playVictorySFX;
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.OnGameOver -= playGameOverSFX;
+        GameEvents.OnVictory -= playVictorySFX;
+    }
+
     private void Start()
     {
         game = FindObjectOfType<Game>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         myCollider = GetComponent<CircleCollider2D>();
+        myAudioSource = GetComponent<AudioSource>();
     }
 
     public void FixedUpdate()
@@ -40,14 +67,24 @@ public class Player : MonoBehaviour
         if (!isInvincible)
         {
             OnPlayerReceivesDamage.Invoke(-points);
-            if(game.Playing) StartCoroutine(BecomeTemporarilyInvincible());
+            myAudioSource.PlayOneShot(hitSFX);
+            if (game.Playing) StartCoroutine(BecomeTemporarilyInvincible());
         }
     }
 
     private void makeInvisible()
     {
         myCollider.enabled = false;
-        //mySpriteRenderer.enabled = false;
+    }
+
+    private void playGameOverSFX()
+    {
+        myAudioSource.PlayOneShot(gameOverSFX);
+    }
+
+    private void playVictorySFX()
+    {
+        myAudioSource.PlayOneShot(victorySFX);
     }
 
     private IEnumerator BecomeTemporarilyInvincible()

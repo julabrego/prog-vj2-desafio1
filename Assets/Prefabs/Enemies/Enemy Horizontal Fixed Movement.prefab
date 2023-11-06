@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.4773591
       objectReference: {fileID: 0}
+    - target: {fileID: 6043767028451454039, guid: ea8b995902e8d544c8eb1313b6090e66, type: 3}
+      propertyPath: hitSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 8d4cc0e0d8a9a1c4799c1d1f512600fa, type: 3}
     - target: {fileID: 8137847887755868319, guid: ea8b995902e8d544c8eb1313b6090e66, type: 3}
       propertyPath: m_Name
       value: Enemy Horizontal Fixed Movement
@@ -91,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65230da5b37163f4e87708ab9d0872db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidad: 5
+  speed: 5
   distanceRange: 3
   startDirection: 1
 --- !u!95 &8616018030304228892
