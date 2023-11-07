@@ -6,6 +6,6 @@ public class SoundFXConfiguration : AbstractAudioConfiguration
 {
     public override void LoadStatus()
     {
-        gameObject.GetComponent<AudioSource>().mute = !PersistenceManager.Instance.GetBool(GameManager.Instance.PersistenceKeys.SoundFXKey);
+        gameObject.GetComponent<AudioSource>().mute = !PersistenceManager.Instance.GetBool(GameManager.Instance.PersistenceKeys.SoundFXKey, true);
     }
 }

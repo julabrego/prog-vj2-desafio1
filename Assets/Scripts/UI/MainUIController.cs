@@ -15,14 +15,15 @@ public class MainUIController : MonoBehaviour
 
     private void Start()
     {
+        PersistenceManager.Instance.DeleteAll();
         LoadPersistedValues();
     }
 
     public void LoadPersistedValues()
     {
-        volumeSlider.value = PersistenceManager.Instance.GetFloat(GameManager.Instance.PersistenceKeys.VolumeKey);
-        soundFxToggle.isOn = PersistenceManager.Instance.GetBool(GameManager.Instance.PersistenceKeys.SoundFXKey);
-        musicToggle.isOn = PersistenceManager.Instance.GetBool(GameManager.Instance.PersistenceKeys.MusicKey);
+        volumeSlider.value = PersistenceManager.Instance.GetFloat(GameManager.Instance.PersistenceKeys.VolumeKey, 0.5f);
+        soundFxToggle.isOn = PersistenceManager.Instance.GetBool(GameManager.Instance.PersistenceKeys.SoundFXKey, true);
+        musicToggle.isOn = PersistenceManager.Instance.GetBool(GameManager.Instance.PersistenceKeys.MusicKey, true);
     }
     public void OpenCredits()
     {

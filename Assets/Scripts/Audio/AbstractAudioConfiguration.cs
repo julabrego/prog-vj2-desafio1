@@ -12,7 +12,7 @@ public abstract class AbstractAudioConfiguration : MonoBehaviour
 
     public void LoadVolume()
     {
-        gameObject.GetComponent<AudioSource>().volume = PersistenceManager.Instance.GetFloat(GameManager.Instance.PersistenceKeys.VolumeKey);
+        gameObject.GetComponent<AudioSource>().volume = PersistenceManager.Instance.GetFloat(GameManager.Instance.PersistenceKeys.VolumeKey, 0.5f);
     }
     public abstract void LoadStatus();
 }

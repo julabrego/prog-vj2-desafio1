@@ -6,6 +6,6 @@ public class MusicConfiguration : AbstractAudioConfiguration
 {
      public override void LoadStatus()
     {
-        gameObject.GetComponent<AudioSource>().mute = !PersistenceManager.Instance.GetBool(GameManager.Instance.PersistenceKeys.MusicKey);
+        gameObject.GetComponent<AudioSource>().mute = !PersistenceManager.Instance.GetBool(GameManager.Instance.PersistenceKeys.MusicKey, true);
     }
 }

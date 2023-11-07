@@ -74,7 +74,6 @@
     <Compile Include="Assets\Scripts\PuzzleSequence.cs" />
     <Compile Include="Assets\Scripts\Hurt.cs" />
     <Compile Include="Assets\Scripts\Audio\MusicConfiguration.cs" />
-    <Compile Include="Assets\Scripts\Managers\MenuManager.cs" />
     <Compile Include="Assets\Scripts\Enemies\FixedMovement.cs" />
     <Compile Include="Assets\Scripts\UI\MainUIController.cs" />
     <Compile Include="Assets\Scripts\DoorToNextLevel.cs" />
