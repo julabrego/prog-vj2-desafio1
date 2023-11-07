@@ -157,7 +157,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 218}
+  m_SizeDelta: {x: 0, y: 197.31667}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &241066455
 GameObject:
@@ -444,7 +444,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 533.6016, y: -300}
-  m_SizeDelta: {x: 996, y: 591.95}
+  m_SizeDelta: {x: 800, y: 591.95}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &476366844
 MonoBehaviour:
@@ -810,9 +810,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Programaci\xF3n y Dise\xF1o: Juli\xE1n \xC1brego\nM\xFAsica: Carlos Wunsche
     (www.soundcloud.com/carlwunsche)\nArte: Goldmetal (www.blog.naver.com/gold_metal)
-    \ny Juli\xE1n \xC1brego\n\nEste juego fue desarrollado como parte del trabajo
-    integrador de la materia Programaci\xF3n de Videojuegos 2 de la Universidad Nacional
-    del Litoral, Argentina, en el a\xF1o 2023.\n\nGracias por jugar :)"
+    \ny Juli\xE1n \xC1brego\n\nEste juego fue desarrollado como trabajo integrador
+    de la materia Programaci\xF3n de Videojuegos 2 de la Tecnicatura en Dise\xF1o
+    y Programaci\xF3n de Videojuegos de la Universidad Nacional del Litoral, Argentina,
+    en el a\xF1o 2023."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -875,7 +876,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -88.71654, y: -117.74432, z: -49.225662, w: -197.95087}
+  m_margin: {x: -10.320969, y: -117.74432, z: -5.3242645, w: -197.95087}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1057,7 +1058,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 400, y: 35.58}
+  m_SizeDelta: {x: 400, y: 69.0223}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &915423995
 MonoBehaviour:
@@ -1074,7 +1075,7 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 48
+    m_Top: 74
     m_Bottom: 0
   m_ChildAlignment: 1
   m_Spacing: 0
@@ -1166,7 +1167,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 197.31667}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &980249969
 MonoBehaviour:
@@ -1750,7 +1751,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 218}
+  m_SizeDelta: {x: 0, y: 197.31667}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1305437758 stripped
 MonoBehaviour:
@@ -2000,10 +2001,10 @@ RectTransform:
   - {fileID: 476366843}
   m_Father: {fileID: 1436339739}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 533.6016, y: -250}
-  m_SizeDelta: {x: 967.20325, y: 500}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.4500122, y: 50}
+  m_SizeDelta: {x: 1067.1, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1436339738
 GameObject:
@@ -2334,7 +2335,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0.8838654, y: 0, z: 67.0773, w: -10.438477}
+  m_margin: {x: 0.8838654, y: 0, z: 1.2253724, w: -10.438477}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
