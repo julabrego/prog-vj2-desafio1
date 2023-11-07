@@ -39,11 +39,10 @@ public class PuzzleSequence : MonoBehaviour
             Animator newPressed = collision.gameObject.GetComponent<Animator>();
             newPressed.SetBool("pressed", true);
             sequenceNumbers.Dequeue();
+            GameEvents.TriggerOpenNextLevel();
 
             if (isPuzzleSolved())
             {
-                Debug.Log(isPuzzleSolved());
-
                 reenableAllCoins();
                 InitializePuzzleSequence();
             }
@@ -57,6 +56,7 @@ public class PuzzleSequence : MonoBehaviour
 
     private void reenableAllCoins()
     {
+        GameEvents.TriggerPuzzleSolved();
         foreach (Transform item in itemsToRestoreParent)
         {
             item.gameObject.GetComponent<Collect>().Restore();

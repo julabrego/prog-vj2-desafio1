@@ -86,6 +86,7 @@ public class PlayerProgression : MonoBehaviour
         progressionData.CurrentLevel++;
         progressionData.CoinsToNextLevel += 10;
         OnCoinsTextChanged.Invoke(getCurrentCoins().ToString());
+        GameEvents.TriggerOpenNextLevel();
     }
 
     public void win()

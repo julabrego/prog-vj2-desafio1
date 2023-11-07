@@ -21,6 +21,14 @@ public class Player : MonoBehaviour
     private AudioClip hitSFX;
 
     [SerializeField]
+    [Tooltip("Sonido de Click")]
+    private AudioClip clickSFX;
+
+    [SerializeField]
+    [Tooltip("Sonido de Puzzle resuelto")]
+    private AudioClip puzzleSolvedSFX;
+
+    [SerializeField]
     [Tooltip("Sonido de Game Over")]
     private AudioClip gameOverSFX;
 
@@ -38,12 +46,16 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
+        GameEvents.OnOpenNextLevel += playClickSFX;
+        GameEvents.OnPuzzleSolved += playPuzzleSolvedSFX;
         GameEvents.OnGameOver += playGameOverSFX;
         GameEvents.OnVictory += playVictorySFX;
     }
 
     private void OnDisable()
     {
+        GameEvents.OnOpenNextLevel -= playClickSFX;
+        GameEvents.OnPuzzleSolved -= playPuzzleSolvedSFX;
         GameEvents.OnGameOver -= playGameOverSFX;
         GameEvents.OnVictory -= playVictorySFX;
     }
@@ -75,6 +87,16 @@ public class Player : MonoBehaviour
     private void makeInvisible()
     {
         myCollider.enabled = false;
+    }
+
+    private void playClickSFX()
+    {
+        myAudioSource.PlayOneShot(clickSFX);
+    }
+
+    private void playPuzzleSolvedSFX()
+    {
+        myAudioSource.PlayOneShot(puzzleSolvedSFX);
     }
 
     private void playGameOverSFX()
