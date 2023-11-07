@@ -11,6 +11,7 @@ public class Game : MonoBehaviour
     private bool joystickEnabled = false;
     private bool playing = true;
 
+
     public bool JoystickEnabled { get => joystickEnabled; set => joystickEnabled = value; }
     public bool Playing { get => playing; set => playing = value; }
     public PlayerProgression PlayerProgression { get => playerProgression; set => playerProgression = value; }
@@ -20,6 +21,7 @@ public class Game : MonoBehaviour
         PlayerProgression = gameObject.GetComponent<PlayerProgression>();
         GameManager.Instance.ResetScore();
     }
+
     public void AddCoins(int _coins)
     {
         PlayerProgression.AddCoins(_coins);
@@ -39,4 +41,10 @@ public class Game : MonoBehaviour
     {
         ApplicationManager.Instance.GoToPreviousScene();
     }
+
+    public void EnableJoystick()
+    {
+        JoystickEnabled = true;
+    }
+
 }
